@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  margin: 0;
+  padding:0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #244e72;
+  
+}
+	#nav {
+    position: absolute;
+    left: 0px;
+    height: 40px;
+    background-color: #1e2933;
+    width: 100%;
+    margin: 0 auto;
+}
+#nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+#nav ul li {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+#nav ul li a {
+	text-decoration: none;
+    padding: 11px 20px;
+    display: block;
+    color: #5a5e66;
+    text-align: center;
+    
+}
+#nav ul li a.active {
+    text-decoration: none;
+    padding: 11px 20px;
+    display: block;
+    color: #FFF;
+    te25align: center;
+    background-color: #192229; 
+   
+}
+
+#nav a:hover {
+	background-color: #192229; 
+	color: #FFF; 
+      
+}
+
+
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 600px;
+  margin: 0 auto;
+  padding-top: 50px;
+
+}
+
+.search-container img {
+  max-height: 100px;
+  margin-right: 450px;
+
+}
+
+.search-container form {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.search-container input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-right: none;
+  border-radius: 4px 0 0 4px;
+  outline: none;
+  margin-left:10px;
+}
+
+.search-container button[type="submit"] {
+  border: none;
+  background: #2c5d87;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-left: 2px;
+}
+
+.search-container button[type="submit"]:hover {
+  background: #4679a5;
+  
+}
+  
+.search-container button[type="button"] {
+  border: none;
+  background:#ffd54c;
+  color: black;
+  padding: 8px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.search-container button[type="button"]:hover {
+  background: #f4b219;
+}
+
+
+.search-container .dropdown {
+  position: relative;
+  display: inline-block;
+  margin-left:10px;
+}
+
+.search-container .dropdown-content {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  backgroun-color:#1e2933;
+  min-width: 160px;
+  line-height:0.25cm;
+  border-radius: 0 0 4px 4px;
+}
+
+.search-container .dropdown:hover .dropdown-content {
+  display: block;
+  
+}
+
+.search-container .dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  background-color: #d9d9d9;
+  
+}
+
+.search-container .dropdown-content a:hover {
+  background-color: #6b767d;
+  color: white;
+
+}
+
+.search-container .dropdown:hover .dropbtn {
+  background-color: #d9d9d9;
+  color:black;
+}
+
+.search-container .dropdown .dropbtn {
+  background-color: #1e2933;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.facebook-icon {
+			display: inline-block;
+			background-image: url('https://www.facebook.com/images/fb_icon_325x325.png');
+			background-size: cover;
+			width: 16px;
+			height: 16px;
+			margin-right: 5px;
+		}
+
+.twitter-icon {
+			display: inline-block;
+			background-image: url('https://cdn-icons-png.flaticon.com/512/124/124021.png');
+			background-size: cover;
+			width: 16px;
+			height: 16px;
+			margin-right: 5px;
+		}
+
+.chat-in-irc-icon {
+			display: inline-block;
+
+			background-image: url('https://icons.iconarchive.com/icons/alecive/flatwoken/256/Apps-Chat-Irc-icon.png');
+			background-size: cover;
+			width: 16px;
+			height: 16px;
+			margin-right: 5px;
+                 }
+
+
+.options-bar {
+         margin-left: 10px;
+	  float:right;
+	  display: flex;
+	  
+         border-top: 1px solid #2d3e4d;
+	  border-bottom:1px solid #070a0c;
+	  background-color:#1e2933;
+         line-height: 1.5cm;
+	  border-radius:6px;
+         
+  }
+
+
+
+
+.imgUnder{
+	max-width:900px;
+	margin:0 auto;
+	
+}
+
+.imgUnder img {
+	max-width:100%;
+	
+	margin: 0 auto;
+	display:block;
+	height:auto;
+	
+}
+
+
+.navbar {
+  justify-content:center;
+  overflow: hidden;
+  background-color: #3571a5;
+  text-align:center;
+  display:flex;
+  width:60%;
+  margin:0 auto;
+  margin-top:15px;
+  border-radius:6px;
+  border-top: 1px solid #7fb7da;
+  padding:10px;   
+  
+}
+
+.navbar a {
+  float:left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+
+.dropdownn {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdownn .dropbtnn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 10px 20px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+  
+}
+
+.navbar a:hover, .dropdownn:hover .dropbtnn {
+  background-color: #0b5b8e;
+ 
+}
+
+
+
+.dropdownn-content {
+  display: none;
+  position: absolute;
+  background-color: #badef7;
+  min-width:20px;
+  max-width:250px;
+  heigth:auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdownn-content a {
+  float: none;
+  color: black;
+  padding: 6px 12px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdownn-content a:hover {
+  background-color: #dbecf9;
+  
+  
+}
+
+.dropdownn:hover .dropdownn-content {
+  display: block;
+}
+
+.dropdownn:hover .dropdownn-content .imageDrop{
+	display:block;
+	margin-left:auto;
+	float:right;
+	width:5%;
+	height:auto;
+
+}
+
+h3 a{
+	color:#ffd54c
+}
+h3 a:hover {
+	color:#ffffff;
+}
+
+</style>  
+</head>
+
+
+<body>
+	<div id="nav">
+    <ul>
+      <li><a class="active" href="#">Python</a></li>
+      <li><a href="#">PSF</a></li>
+      <li><a href="#">Docs</a></li>
+      <li><a href="#">PiPI</a></li>
+      <li><a href="#">Jobs</a></li>
+      <li><a href="#">Community</a></li>
+    </ul>
+	</div>
+    
+
+	<div class="search-container">
+  		<img src="python-logo.png" alt="Your Image">
+		<button type="button">Donate</button>
+	    <div class="options-bar">
+  		<form>
+    			<input type="text" placeholder="Search...">
+    			<button type="submit">Go</button>
+  		</form>
+	
+		<div class="dropdown">
+			<button class="dropbtn" onclick="myFunction()">Socialize</button>
+  			<div class="dropdown-content" id="myDropdown">
+    			  <a href="#"> <span class="facebook-icon"></span> Facebook</a>
+    			  <a href="#"><span class="twitter-icon"></span>Twitter</a>
+    			  <a href="#"><span class="chat-in-irc-icon"></span>Chat in IRC</a>
+  			</div>
+		</div>
+           </div>
+	</div>
+
+	
+
+
+	
+	<div class="navbar">
+		<div class="dropdownn">
+    			<button class="dropbtnn">About 
+      		  <i class="fa fa-caret-down"></i>
+    			</button>		
+		      
+    			 <div class="dropdownn-content">
+				<div class="imageDrop">
+					<img src="AboutImg.png">
+				</div>
+      			<a href="#">Applications</a>
+				<hr style="height:1px;border-width:0;color:gray;background-color:#a0d2f1">
+      			<a href="#">Quotes</a>
+				<hr style="height:1px;border-width:0;color:gray;background-color:#a0d2f1">
+      			<a href="#">Getting Started</a>
+				<hr style="height:1px;border-width:0;color:gray;background-color:#a0d2f1">
+				<a href="#">Help</a>
+				<hr style="height:1px;border-width:0;color:gray;background-color:#a0d2f1">
+				<a href="#">Python Brochure</a>
+			      
+    			</div>
+              
+              
+  		</div> 
+
+
+  		
+		<div class="dropdownn">
+    			<button class="dropbtnn">Downloads 
+      		  <i class="fa fa-caret-down"></i>
+    			</button>
+    			<div class="dropdownn-content">
+				<div class="imageDrop">
+					<img src="DownloadsImg.png">
+				</div>
+
+				
+      			<a href="#">All releases</a>
+				<hr style="height:1px;border-width:0;color:gray;background-color:#a0d2f1">
+      			<a href="#">Source code</a>
+				<hr style="height:1px;border-width:0;color:gray;background-color:#a0d2f1">
+      			<a href="#">Windows</a>
+				<hr style="height:1px;border-width:0;color:gray;background-color:#a0d2f1">
+				<a href="#">macOS</a>
+				<hr style="height:1px;border-width:0;color:gray;background-color:#a0d2f1">
+				<a href="#">Other Platforms</a>
+				<hr style="height:1px;border-width:0;color:gray;background-color:#a0d2f1">
+				<a href="#">License</a>
+				<hr style="height:1px;border-width:0;color:gray;background-color:#a0d2f1">
+				<a href="#">Alternative Implementations</a>
+
+
+    			</div>
+  		</div> 
+
+  		<div class="dropdownn">
+    			<button class="dropbtnn">Documentation 
+      		  <i class="fa fa-caret-down"></i>
+    			</button>
+    			<div class="dropdownn-content">
+				<div class="imageDrop">
+					<img src="DocumentationImg.png">
+				</div>
+				
+      			<a href="#">Docs</a>
+				<hr style="height:1px;border-width:0;color:gray;background-color:#a0d2f1">
+      			<a href="#">Audio/Visual Talks</a>
+				<hr style="height:1px;border-width:0;color:gray;background-color:#a0d2f1">
+      			<a href="#">Beginner's Guide</a>
+				<hr style="height:1px;border-width:0;color:gray;background-color:#a0d2f1">
+				<a href="#">Developer's Guide</a>
+				<hr style="height:1px;border-width:0;color:gray;background-color:#a0d2f1">
+				<a href="#">FAQ</a>
+				<hr style="height:1px;border-width:0;color:gray;background-color:#a0d2f1">
+				<a href="#">Non-English Docs</a>
+				<hr style="height:1px;border-width:0;color:gray;background-color:#a0d2f1">
+				<a href="#">PEP Index</a>
+				<hr style="height:1px;border-width:0;color:gray;background-color:#a0d2f1">
+				<a href="#">Python Books</a>
+				<hr style="height:1px;border-width:0;color:gray;background-color:#a0d2f1">
+				<a href="#">Python Essays</a>					
+    			</div>
+  		</div> 
+
+		<div class="dropdownn">
+    			<button class="dropbtnn">Community
+      		  <i class="fa fa-caret-down"></i>
+    			</button>
+    			<div class="dropdownn-content">
+				<div class="imageDrop">
+					<img src="CommunityImg.png">
+				</div>
+				
+      			<a href="#">Docs</a>
+				<hr style="height:1px;border-width:0;color:gray;background-color:#a0d2f1">
+      			<a href="#">Diversity</a>
+				<hr style="height:1px;border-width:0;color:gray;background-color:#a0d2f1">
+      			<a href="#">Mailing Lists</a>
+				<hr style="height:1px;border-width:0;color:gray;background-color:#a0d2f1">
+				<a href="#">IRC</a>
+				<hr style="height:1px;border-width:0;color:gray;background-color:#a0d2f1">
+				<a href="#">Forums</a>
+				<hr style="height:1px;border-width:0;color:gray;background-color:#a0d2f1">
+				<a href="#">PSF Annual Impact Report</a>
+				<hr style="height:1px;border-width:0;color:gray;background-color:#a0d2f1">
+				<a href="#">Python Conferences</a>
+				<hr style="height:1px;border-width:0;color:gray;background-color:#a0d2f1">
+				<a href="#">Special Interest Groups</a>
+				<hr style="height:1px;border-width:0;color:gray;background-color:#a0d2f1">
+				<a href="#">Python Logo</a>		
+				<hr style="height:1px;border-width:0;color:gray;background-color:#a0d2f1">
+				<a href="#">Python Wiki</a>
+				<hr style="height:1px;border-width:0;color:gray;background-color:#a0d2f1">
+				<a href="#">Code of Conduct</a>
+				<hr style="height:1px;border-width:0;color:gray;background-color:#a0d2f1">
+				<a href="#">Community Awards</a>
+				<hr style="height:1px;border-width:0;color:gray;background-color:#a0d2f1">
+				<a href="#">Get Involved</a>
+				<hr style="height:1px;border-width:0;color:gray;background-color:#a0d2f1">
+				<a href="#">Shared Stories</a>
+
+ 			</div>
+  		</div> 
+		
+		
+
+		<div class="dropdownn">
+    			<button class="dropbtnn">Success Stories
+      		  <i class="fa fa-caret-down"></i>
+    			</button>
+    			<div class="dropdownn-content">
+				<div class="imageDrop">
+					<img src="SuccessImg.png">
+				</div>
+				
+				
+      			<a href="#">Arts</a>
+				<hr style="height:1px;border-width:0;color:gray;background-color:#a0d2f1">
+      			<a href="#">Business</a>
+				<hr style="height:1px;border-width:0;color:gray;background-color:#a0d2f1">
+      			<a href="#">Education</a>
+				<hr style="height:1px;border-width:0;color:gray;background-color:#a0d2f1">
+				<a href="#">Engineering</a>
+				<hr style="height:1px;border-width:0;color:gray;background-color:#a0d2f1">
+				<a href="#">Government</a>
+				<hr style="height:1px;border-width:0;color:gray;background-color:#a0d2f1">
+				<a href="#">Scientific</a>
+				<hr style="height:1px;border-width:0;color:gray;background-color:#a0d2f1">
+				<a href="#">Software Development</a>
+    			</div>
+  		</div> 
+		
+
+		<div class="dropdownn">
+    			<button class="dropbtnn">News 
+      		  <i class="fa fa-caret-down"></i>
+    			</button>
+    			<div class="dropdownn-content">
+				
+				
+      			<a href="#">Python News</a>
+				<hr style="height:1px;border-width:0;color:gray;background-color:#a0d2f1">
+      			<a href="#">PSF Newsletter</a>
+				<hr style="height:1px;border-width:0;color:gray;background-color:#a0d2f1">
+      			<a href="#">PSF News</a>
+				<hr style="height:1px;border-width:0;color:gray;background-color:#a0d2f1">
+				<a href="#">PyCon US News</a>
+				<hr style="height:1px;border-width:0;color:gray;background-color:#a0d2f1">
+				<a href="#">News from the Community</a>
+
+    			</div>
+  		</div> 
+
+		
+
+		<div class="dropdownn">
+    			<button class="dropbtnn">Events
+      		  <i class="fa fa-caret-down"></i>
+    			</button>
+    			<div class="dropdownn-content">
+				<div class="imageDrop">
+					<img src="EventsImg.png">
+				</div>
+      			<a href="#">Python Events</a>
+				<hr style="height:1px;border-width:0;color:gray;background-color:#a0d2f1">
+      			<a href="#">User Group Events</a>
+				<hr style="height:1px;border-width:0;color:gray;background-color:#a0d2f1">
+      			<a href="#">Python Events Archive</a>
+				<hr style="height:1px;border-width:0;color:gray;background-color:#a0d2f1">
+				<a href="#">User Group Events Archive</a>
+				<hr style="height:1px;border-width:0;color:gray;background-color:#a0d2f1">
+				<a href="#">Submit an Event</a>
+
+
+    			</div>
+  		</div> 
+
+	</div>
+	<div class="imgUnder">
+		<img src="TwoImages.png">
+	</div>
+	<footer >
+		
+		<h3 align="center" style="color:white;font-size:140%;font-family:courier;">Python is a programming language that lets you work quickly</h3>
+		<h3 align="center" style="color:white;font-size:140%;font-family:courier;"> and integrate systems more effectively. <a href="#"">  >>> Learn More </a></h3>
+      </footer>
+
+       
+    	
+</body>
+</html>
